@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="for love between yiyi and jinyu">
+	  <meta name="keywords" content="easy respond web">
+  	<meta name="author" content="describe jinyu">
+    <title>jinyu and yiyi | love</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="img/金鱼.png">
+  </head>
+    <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">伊一</span> 和 金鱼</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">小窝</a></li>
+            <li><a href="金鱼老师.html">金鱼介绍</a></li>
+            <li class="current"><a href="services.html">伊一介绍</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  <section class="wheel-container">
+  <link rel="stylesheet" href="./css/轮盘.css">    
+    <div class="wheel" id="wheel">
+      <div class="segment" id="segment1">金鱼爱伊一</div>
+      <div class="segment" id="segment2">金鱼不爱</div>
+      <div class="segment" id="segment3">伊一爱金鱼</div>
+      <div class="segment" id="segment4">伊一不爱</div>
+    </div>
+    <button id="spinButton">旋转轮盘</button>
+  </section>
+    <script>        document.addEventListener('DOMContentLoaded', function() {
+  var wheel = document.getElementById('wheel');
+  var spinButton = document.getElementById('spinButton');
+  var segments = document.querySelectorAll('.segment');
+  var activeSegmentIndex = 0;
+
+  spinButton.addEventListener('click', function() {
+    wheel.classList.add('active');
+    // 随机选择一个扇区
+    activeSegmentIndex = Math.floor(Math.random() * segments.length);
+    wheel.style.transition = 'transform 2s';
+
+    // 旋转到选中的扇区
+    wheel.style.transform = 'rotate(' + (activeSegmentIndex * 90) + 'deg)';
+  });
+
+  // 旋转结束后，隐藏其他扇区
+  wheel.addEventListener('transitionend', function() {
+    wheel.classList.remove('active');
+    for (var i = 0; i < segments.length; i++) {
+      segments[i].style.opacity = (i === activeSegmentIndex) ? '1' : '0';
+    }
+  });
+});
+</script>
+      </body>
+</html>

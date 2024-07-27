@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="for love between yiyi and jinyu">
+	  <meta name="keywords" content="easy respond web">
+  	<meta name="author" content="describe jinyu">
+    <title>jinyu and yiyi | love</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="img/金鱼.png">
+  </head>
+   <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">伊一</span> 和金鱼</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">小窝</a></li>
+            <li class="current"><a href="about.html">金鱼介绍</a></li>
+            <li><a href="services.html">伊一介绍</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+   <section id="chatbox">
+  <div class="container">
+    <h1>快说喵！</h1>
+    <form id="chatForm">
+      <input type="text" id="message" placeholder="快发喵！" required>
+      <button type="submit" class="button_1">喵</button>
+    </form>
+    <div id="messages">
+      <!-- Messages will be displayed here -->
+    </div>
+  </div>
+</section>
+    <section id="main">
+      <div class="container">
+        <article id="main-col">
+          <h1 class="page-title">你说的不对</h1>
+          <p>
+            金鱼老师是一个萝莉
+                      </p>
+          <p class="dark">
+金鱼老师最爱伊一啦
+          </p>
+        </article>
+
+        <aside id="sidebar">
+          <div class="dark">
+            <h3>你知道我要说什么</h3>
+            <p>
+                已经无法想象没有伊一的tg了
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <p>欢迎来到伊一和金鱼之家</p>
+    </footer>
+  <script>    document.addEventListener('DOMContentLoaded', function() {
+  var chatForm = document.getElementById('chatForm');
+  var messageInput = document.getElementById('message');
+  var messages = document.getElementById('messages');
+
+  chatForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser.
+
+    var userMessage = messageInput.value.trim();
+    if (userMessage) {
+      displayMessage('user', userMessage); // Function to display user's message.
+      messageInput.value = ''; // Clear the input field.
+
+      // Check for keywords and respond accordingly.
+      if (userMessage.toLowerCase().includes('金鱼')) {
+        respond('你是在问伊一的老婆吗？');
+      } else if (userMessage.toLowerCase().includes('杂鱼')) {
+        respond('属于伊一！');
+      } else {
+        respond('包听不懂的');
+      }
+    }
+  });
+
+  function displayMessage(sender, text) {
+    var messageItem = document.createElement('div');
+    messageItem.classList.add('message', sender);
+    messageItem.textContent = text;
+    messages.appendChild(messageItem);
+  }
+
+  function respond(text) {
+    displayMessage('bot', text); // Function to display bot's response.
+  }
+});
+</script>
+  </body>
+</html>
+
